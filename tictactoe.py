@@ -78,7 +78,7 @@ while(bool):
     #the game start
     i=0
     while(i < 9 ):
-        #selecting which payer can play
+        #selecting which player can play
         if(i % 2 == 0):
             player=player1
         else:
