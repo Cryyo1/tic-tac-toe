@@ -8,7 +8,11 @@ class Player():
 # dictionnary for a board 
 # each one represent (place : value)
 board_dict={}
+#free places which player can play init
 free_board=[]
+
+#functions
+#board of tic tac toe
 def board():
     value=1;
     for i in range(3):    
@@ -16,14 +20,14 @@ def board():
         print('| {} | {} | {} |'.format(board_dict[str(value)],board_dict[str(value+1)],board_dict[str(value+2)]))
         value+=3
     print('-------------')
-
+#input position of playing
 def input_X_O(XO):
     area=int(input("please enter the play area:"))
     while(area not in free_board):
         area=int(input("please enter the play area:"))
     board_dict[str(area)]=XO
     free_board.remove(area)
-
+#verifying if player who is playing won or not 
 def check():
     if((board_dict['1'] == board_dict['2']) & (board_dict['2']==board_dict['3'])):
         return True
@@ -74,6 +78,7 @@ while(bool):
     #the game start
     i=0
     while(i < 9 ):
+        #selecting which payer can play
         if(i % 2 == 0):
             player=player1
         else:
@@ -88,12 +93,10 @@ while(bool):
         if((i==8) & (not check())):
             print('it is a draw between {} and {}'.format(player1.name,player2.name))
         i+=1
+    #rematch part after the round ends
     rematch=input('would you like a rematch (yes/no):')
     if rematch in('y','Y','yes','YES','Yes'):
         bool=True
     else:
         bool=False 
         print('See you later, bye ')
-
-    
-
