@@ -42,8 +42,6 @@ def check():
         return True
     return False
 
-def intialize_board():
-    board_dict={'1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9'}
 
 #My main  function u can say (for c devoloper)
    
@@ -67,7 +65,8 @@ else:
 
 bool=True
 while(bool):
-    intialize_board()
+    #intialize_board
+    board_dict={'1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9'}
     os.system('cls')
     board()
     #the game start
