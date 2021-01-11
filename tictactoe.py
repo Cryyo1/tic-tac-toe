@@ -7,8 +7,8 @@ class Player():
         self.XO=XO
 # dictionnary for a board 
 # each one represent (place : value)
-board_dict={'1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9'}
-
+board_dict={}
+free_board=[]
 def board():
     value=1;
     for i in range(3):    
@@ -19,9 +19,10 @@ def board():
 
 def input_X_O(XO):
     area=int(input("please enter the play area:"))
-    while(area not in (1,2,3,4,5,6,7,8,9)):
+    while(area not in free_board):
         area=int(input("please enter the play area:"))
     board_dict[str(area)]=XO
+    free_board.remove(area)
 
 def check():
     if((board_dict['1'] == board_dict['2']) & (board_dict['2']==board_dict['3'])):
@@ -67,6 +68,7 @@ bool=True
 while(bool):
     #intialize_board
     board_dict={'1':'1','2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9'}
+    free_board=[1,2,3,4,5,6,7,8,9]
     os.system('cls')
     board()
     #the game start
